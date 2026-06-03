@@ -219,11 +219,13 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
    NOTICE BAR
 ============================================================ */
 .notice-bar {
-  background: var(--navy);
-  color: rgba(255,255,255,0.75);
-  font-size: var(--text-xs);
-  padding: 10px 0;
+  background: var(--wine);
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: 12px 0;
   overflow: hidden;
+  border-bottom: 2px solid var(--gold);
 }
 .notice-bar__inner {
   display: flex;
@@ -236,11 +238,11 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 .notice-bar__label {
   background: var(--gold);
   color: var(--white);
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 5px 14px;
   border-radius: 2px;
   white-space: nowrap;
   flex-shrink: 0;
@@ -607,12 +609,12 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 }
 .admin-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
 
-.admin-card__img-wrap { height: 220px; overflow: hidden; }
+.admin-card__img-wrap { height: 280px; overflow: hidden; }
 .admin-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
   transition: transform var(--transition-slow);
 }
 .admin-card:hover .admin-card__img { transform: scale(1.04); }
@@ -1466,4 +1468,238 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 
   .contact-form-wrap { padding: var(--space-5); }
   .form-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   WINE RED THEME — School Uniform Colors
+   Added: Church section, Student Body, Top Performers
+============================================================ */
+
+/* Override primary accent to wine red where needed */
+:root {
+  --wine:       #6B1A1A;
+  --wine-mid:   #8B2020;
+  --wine-light: #A83030;
+  --wine-pale:  #F5E8E8;
+}
+
+/* Wine background sections */
+.section--wine {
+  background: var(--wine);
+}
+
+/* ============================================================
+   CHURCH SECTION
+============================================================ */
+.church-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+.church-body__text {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  margin-bottom: var(--space-3);
+  max-width: 52ch;
+}
+.church-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.church-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.church-feature:last-child { border-bottom: none; }
+.church-feature__icon { color: var(--gold-light); font-size: 20px; flex-shrink: 0; margin-top: 3px; }
+.church-feature strong { display: block; font-size: var(--text-base); color: var(--white); font-weight: 600; }
+.church-feature span   { font-size: var(--text-sm); color: rgba(255,255,255,0.55); }
+
+.church-media { position: relative; }
+.church-media__img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--gold);
+}
+.church-media__caption {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  right: var(--space-3);
+  background: rgba(11,31,58,0.88);
+  backdrop-filter: blur(8px);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--gold-light);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.church-media__caption i { color: var(--gold); }
+
+/* ============================================================
+   STUDENT BODY
+============================================================ */
+.student-body-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.student-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(192,154,60,0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.student-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.student-card--featured {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--gold);
+  border-width: 2px;
+}
+
+.student-card__img-wrap { height: 240px; overflow: hidden; }
+.student-card--featured .student-card__img-wrap { height: 280px; }
+.student-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--transition-slow);
+}
+.student-card:hover .student-card__img { transform: scale(1.04); }
+
+.student-card__body { padding: var(--space-3) var(--space-3) var(--space-4); }
+.student-card__role {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: var(--space-1);
+}
+.student-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.student-card__grade { font-size: var(--text-xs); color: rgba(255,255,255,0.45); margin-bottom: var(--space-2); }
+.student-card__quote {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  font-style: italic;
+  border-left: 2px solid var(--gold);
+  padding-left: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* ============================================================
+   TOP PERFORMERS TABLE
+============================================================ */
+.performers-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.performers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+.performers-table thead tr {
+  background: var(--wine);
+}
+.performers-table thead th {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-align: left;
+}
+
+.performers-table tbody tr {
+  border-bottom: 1px solid var(--gray-100);
+  transition: background var(--transition-fast);
+}
+.performers-table tbody tr:hover { background: var(--wine-pale); }
+.performers-table tbody tr.top-row { background: rgba(107,26,26,0.04); }
+.performers-table tbody tr.top-row:hover { background: var(--wine-pale); }
+
+.performers-table tbody td {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  vertical-align: middle;
+}
+
+.year-badge {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+}
+
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+.position-badge--gold   { background: #FFD700; color: #5a4200; }
+.position-badge--silver { background: #C0C0C0; color: #333; }
+.position-badge--bronze { background: #CD7F32; color: #fff; }
+
+.marks {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--wine);
+}
+
+/* ============================================================
+   RESPONSIVE ADDITIONS
+============================================================ */
+@media (max-width: 1024px) {
+  .student-body-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .church-grid { grid-template-columns: 1fr; }
+  .church-media__img { height: 280px; }
+  .student-body-grid { grid-template-columns: 1fr; }
+  .student-card--featured .student-card__img-wrap { height: 240px; }
+  .performers-table thead th,
+  .performers-table tbody td { padding: var(--space-1) var(--space-2); font-size: var(--text-xs); }
 }
